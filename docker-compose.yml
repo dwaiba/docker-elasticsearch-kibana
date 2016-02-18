@@ -1,0 +1,14 @@
+elasticsearch:
+  image: elasticsearch:latest
+  container_name: elasticsearch
+  ports:
+    - "9200:9200"
+    - "9300:9300"
+kibana:
+  image: kibana:latest
+  container_name: kibana
+  external_links:
+    - elasticsearch
+  ports:
+    - "8080:80"
+    - "5601:5601"
